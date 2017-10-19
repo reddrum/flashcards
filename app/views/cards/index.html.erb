@@ -1,7 +1,6 @@
 <% @cards.each do |card| %>
 	<div class="template">
-		<%= card.original_text %>
-		<%= card.translated_text %>
-		<%= card.review_date.to_datetime.strftime("%d/%m/%Y") %>
+		<h2><%= link_to card.original_text, card %></h2>
+		<h4><%= card.review_date.to_datetime.strftime("%d/%m/%Y") %></h4>
 	</div>	
 <% end %>
