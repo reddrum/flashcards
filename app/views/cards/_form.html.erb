@@ -1,0 +1,16 @@
+<%= simple_form_for @card, html: { class: 'form-inline' } do |f| %>
+	<% if @card.errors.any? %>
+		<div class="panel-body">
+	    <h2><%= pluralize(@card.errors.count, "error") %> </h2>
+	    <ul>
+	      <% @card.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	      <% end %>
+	    </ul>
+		</div>
+	<% end %>
+
+  <%= f.input :original_text %>
+  <%= f.input :translated_text %>
+  <%= f.button :submit %>
+<% end %>
