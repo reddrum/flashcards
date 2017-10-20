@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.21.0'
 gem 'rb-readline', '~> 0.5.5'
 gem 'simple_form', '~> 3.5'
+gem 'nokogiri', '~> 1.8', '>= 1.8.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
