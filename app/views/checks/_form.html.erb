@@ -1,6 +1,6 @@
 <p><%= @card.translated_text %></p>
 
-<%= simple_form_for :check, url: checks_path, html: { class: 'form-inline' } do |f| %>
+<%= simple_form_for :check, url: check_path, method: :post, html: { class: 'form-inline' } do |f| %>
   <%= f.input :original %>
   <%= f.button :submit %>
   <%= f.hidden_field :card_id, value: @card.id %>
