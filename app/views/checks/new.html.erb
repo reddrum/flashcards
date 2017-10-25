@@ -1,0 +1,8 @@
+<% if @card %>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <%= render 'form' %>
+<% else %>
+  <p> No cards </p>
+<% end %>
