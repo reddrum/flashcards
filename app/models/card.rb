@@ -6,7 +6,7 @@ class Card < ApplicationRecord
   scope :random, -> { offset(rand(count)).first }
   
   before_create do
-    self.review_date = DateTime.now + 3.days
+    self.review_date = DateTime.now.midnight + 3.days
   end
 
 
