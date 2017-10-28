@@ -12,6 +12,16 @@ RSpec.describe Card, :type => :model do
     it { expect(card).to be_valid }    
   end
 
+  context "right answer" do
+    let(:card) { create(:card) }
+    it { expect(card.check_str("home") ).to be true }
+  end
+
+  context "wrong answer" do
+    let(:card) { create(:card) }
+    it { expect(card.check_str("country") ).to be false }
+  end
+
   context "checks" do
     let(:card) { create(:card) }
 
