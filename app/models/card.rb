@@ -3,7 +3,7 @@ class Card < ApplicationRecord
   validates :translated_text, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[а-яА-Я]+\z/ }
 
   scope :time, -> { where("review_date <= ?", DateTime.now) }
-  scope :random, -> { offset(rand(count)).first }
+  scope :random, -> { offset(rand(count)) }
   
   before_create do
     self.review_date = DateTime.now.midnight + 3.days

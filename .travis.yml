@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+  - 2.4.1
+services:
+  - postgresql
+script:
+  - bundle exec rails db:migrate
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+addons:
+  code_climate:
+    repo_token:
+    secure: "KNmknq20T/48h4RHQQtUYii97pLLwFQoLT6kWkh/aTRyac9UAPo6xhYHzKZpf+TSg+/GwG/s8BbWC9hxpEY5zIDi31SsHwsNfS6GOkqSgMPsjWAnNfAYiaYO577EQLsE1FrhJOLMYlbKQO8QPqxDb8Wd+0eUobpT+SJQLODohvFbwxOSFeXm/83IkZJqEganQAV6hjRIHtEPn7UtnlfoZJLuP5WgjhxaZHbgG9k7Qh1LirBhj0Yjaku7Qcm3DHrhm6JpSz5vp5XgICLMZVvl8lzrI3INebq5nVgVrd6PD/kdeyttNgwsQP9eu/h75ZfEboUBq9bPKlqASqW3KUyD5OWiSILqix6gukl1KMu0nsmDHbNIDfd00NXqLY+zYItMNtRqdPSIrxbNW/ajGA6V5N0Kdh4g4psB4bwI0qURSMBlpwMBtamINmQTFavlEnOHpJxRVsKDHTKg93cflGGNHyA6nSEDli2BgveH9Y1GBaxLgKb1619FnRGOlY3UDVfpW1M5k4BE4tr1LaOu81cS/3IDEvHzQXeu0hdK9SZo5hRq9e9h38P3LPF8p1GTFCB5WpeUfFknGg1vNu/9iDLuBs1X+oSGOmkf8V8s62n3+kLs8e95+Y+tmFhno/ZH585Rny5AwrU/8xDgGKLItrFm4uKlGypzpv42YqB2MViMdw4="

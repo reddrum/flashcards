@@ -1,6 +1,6 @@
 class ChecksController < ApplicationController
   def index
-    @card = Card.time.random
+    @card = Card.time.random.first
   end
 
   def check
