@@ -1,4 +1,5 @@
 class Card < ApplicationRecord
+  belongs_to :user, optional: true
   validates :original_text, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z]+\z/ }
   validates :translated_text, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[а-яА-Я]+\z/ }
 
