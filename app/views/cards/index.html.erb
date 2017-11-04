@@ -1,6 +1,8 @@
-<% @cards.each do |card| %>
-	<div class="template">
-		<h2><%= link_to card.original_text, card %></h2>
-		<h4><%= card.review_date.to_datetime.strftime("%d/%m/%Y") %></h4>
-	</div>	
-<% end %>
+<div class="col-md-6 col-md-offset-3">
+	<% @cards.each do |card| %>
+		<div class="template">
+			<h2><%= link_to card.original_text, card %></h2>
+			<h4><%= card.review_date.to_datetime.strftime("%d/%m/%Y") %></h4>
+		</div>	
+	<% end %>
+</div>

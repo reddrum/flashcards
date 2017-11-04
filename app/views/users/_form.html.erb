@@ -1,0 +1,14 @@
+<%= simple_form_for @user do |f| %>
+
+	<% flash.each do |key, value| %>
+	<div class="alert alert-<%= key %>"><%= value %></div>
+	<% end %>
+
+  <%= f.input :email, :label => 'Email Address',:placeholder => 'Email Address' %>
+
+  <%= f.input :password, :label => 'Password',:placeholder => 'Password' %>
+
+  <%= f.input :password_confirmation, :label => 'Password Confirmation',:placeholder => 'Password Confirmation' %>
+
+  <%= f.button :submit %>
+<% end %>

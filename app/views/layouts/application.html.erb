@@ -18,10 +18,21 @@
 		    	<li><%= link_to "Все карточки", cards_path %></li>
 		    </ul>	
 		    <ul class="nav navbar-nav navbar-right">
-		     <%= link_to "Добавить карточку", new_card_path, class: "btn btn-danger navbar-btn" %>
+					<% if current_user %>
+						<%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+						<%= link_to "Logout", :logout, method: :post %>
+					<% else %>
+						<%= link_to "Register", new_user_path %> |
+						<%= link_to "Login", :login %>
+					<% end %>
+		      <%= link_to "Добавить карточку", new_card_path, class: "btn btn-danger navbar-btn" %>
 		    </ul>
 		  </div>
 		</nav>
+		<div>
+	    <p id="notice"><%= flash[:notice] %></p>
+	    <p id="alert"><%= flash[:alert] %></p>
+	  </div>
 
     <%= yield %>
   </body>
