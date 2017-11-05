@@ -37,6 +37,8 @@ gem 'simple_form', '~> 3.5'
 gem 'nokogiri', '~> 1.8', '>= 1.8.1'
 gem 'sorcery'
 gem 'figaro'
+gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 
 
 group :development, :test do
