@@ -35,6 +35,8 @@ gem 'pg', '~> 0.21.0'
 gem 'rb-readline', '~> 0.5.5'
 gem 'simple_form', '~> 3.5'
 gem 'nokogiri', '~> 1.8', '>= 1.8.1'
+gem 'sorcery'
+gem 'figaro'
 
 
 group :development, :test do
