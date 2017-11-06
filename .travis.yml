@@ -10,9 +10,6 @@ script:
 before_script:
 - psql -c 'create database travis_ci_test;' -U postgres
 - cp config/database.yml.travis config/database.yml
-before_install:
-  - chmod +x ecr_credentials.sh
-  - ./ecr_credentials.sh
 addons:
   code_climate:
     repo_token: 
