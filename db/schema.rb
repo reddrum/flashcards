@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171104144402) do
+ActiveRecord::Schema.define(version: 20171105122313) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -28,6 +28,10 @@ ActiveRecord::Schema.define(version: 20171104144402) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 

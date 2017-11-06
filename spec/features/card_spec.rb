@@ -8,12 +8,22 @@ describe "Cards", :type => :feature do
     let!(:card) { create(:card) }
     before(:each) { login('qwerty@gmail.com', '123456') }
 
-    it "create new card" do
+    it "create new card&upload image" do
       visit new_card_path
+      attach_file 'card[image]', "#{Rails.root}/spec/fixtures/picture.jpg"
       fill_in('card_original_text', with: 'river')
       fill_in('card_translated_text', with: 'река')
       click_button 'Create Card'
-      expect(page).to have_content 'река'
+      expect(page).to have_css("img[src*='picture.jpg']")
+    end
+
+    it "create new card&upload image from URL" do
+      visit new_card_path
+      fill_in('card_image_remote_url', with: 'https://cdn.igromania.ru/mnt/news/6/8/e/1/c/3/67083/2ea4ae5defac8588_1200xH.jpg')
+      fill_in('card_original_text', with: 'river')
+      fill_in('card_translated_text', with: 'река')
+      click_button 'Create Card'
+      expect(page).to have_xpath("//img[contains(@src,'2ea4ae5defac8588_1200xH.jpg')]")
     end
   end
 

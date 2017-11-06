@@ -22,3 +22,4 @@ config/application.yml
 /yarn-error.log
 
 .byebug_history
+/public/system/
