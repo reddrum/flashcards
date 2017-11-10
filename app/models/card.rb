@@ -1,6 +1,7 @@
 class Card < ApplicationRecord
   attr_reader :image_remote_url
   belongs_to :user, optional: true
+  belongs_to :deck, optional: true
   validates :original_text, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z]+\z/ }
   validates :translated_text, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[а-яА-Я]+\z/ }
 
@@ -13,7 +14,6 @@ class Card < ApplicationRecord
   before_create do
     self.review_date = DateTime.now.midnight + 3.days
   end
-
 
   def check_str(text)
     original_text.casecmp(text.strip).zero?

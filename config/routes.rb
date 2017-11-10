@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   
   resources :cards
   resources :users
+  resources :decks do
+    member do
+      post "current_on"
+    end
+  end
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'
   

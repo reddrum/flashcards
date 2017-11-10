@@ -1,5 +1,5 @@
+<p><%= image_tag @card.image.url(:small) %></p>
 <p><%= @card.translated_text %></p>
-
 <%= simple_form_for :check, url: check_path, method: :post, html: { class: 'form-inline' } do |f| %>
   <%= f.input :original %>
   <%= f.button :submit %>

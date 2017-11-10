@@ -5,6 +5,7 @@ describe "Cards", :type => :feature do
 
   context "create" do
     let!(:user) { create(:user) }
+    let!(:deck) { create(:deck) }
     let!(:card) { create(:card) }
     before(:each) { login('qwerty@gmail.com', '123456') }
 
@@ -29,9 +30,11 @@ describe "Cards", :type => :feature do
 
   context "checks" do
     let!(:user) { create(:user) }
-    let!(:card) { create(:card) }
+    let!(:deck) { create(:deck, user: user) }
+    let!(:card) { create(:card, deck: deck) }
     before(:each) do
       login('qwerty@gmail.com', '123456')
+      user.update_attribute(:current_deck_id, deck.id)
       card.update_attribute(:review_date, Date.current)
       visit root_path
     end

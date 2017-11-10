@@ -1,0 +1,15 @@
+<%= simple_form_for @deck do |f| %>
+  <% if @deck.errors.any? %>
+    <div class="panel-body">
+      <h2><%= pluralize(@deck.errors.count, "error") %> </h2>
+      <ul>
+        <% @deck.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :title %>
+  <%= f.button :submit %>
+<% end %>

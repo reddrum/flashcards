@@ -8,21 +8,25 @@ RSpec.describe Card, :type => :model do
   end
 
   context "is valid" do
+    let(:deck) { create(:deck) }
     let(:card) { create(:card) }
     it { expect(card).to be_valid }    
   end
 
   context "right answer" do
+    let(:deck) { create(:deck) }
     let(:card) { create(:card) }
     it { expect(card.check_str("home") ).to be true }
   end
 
   context "wrong answer" do
+    let(:deck) { create(:deck) }
     let(:card) { create(:card) }
     it { expect(card.check_str("country") ).to be false }
   end
 
   context "checks" do
+    let(:deck) { create(:deck) }
     let(:card) { create(:card) }
 
     it "review_date" do      

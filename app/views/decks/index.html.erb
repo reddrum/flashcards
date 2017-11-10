@@ -1,0 +1,30 @@
+<div class="col-md-6 col-md-offset-3">
+	<h2>Decks</h2>
+
+	<table class="table table-striped"
+	  <tr>
+	    <th><%= "Title" %></th>
+	    <th><%= "Cards" %></th>
+	    <th><%= "Set as current deck" %></th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+
+	  <% @decks.each do |deck| %>
+	    <tr>
+	      <td><%= link_to deck.title, deck_path(deck) %></td>
+	      <td><%= deck.cards.count %></td>
+	      <% if deck.current %>
+	      	<td><span><<<{current}>>></span></td>
+	      <% else %>	
+	      	<td><%= link_to "Set", current_on_deck_path(deck), method: "post" %></td>
+	      <% end %>	
+	      <td><%= link_to "Edit", edit_deck_path(deck) %></td>
+	      <td><%= link_to "Delete", deck_path(deck), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	      <td><%= link_to "Add Card", new_card_path %></td>
+	    </tr>
+	  <% end %>
+	</table>
+	<%= link_to "New Deck", new_deck_path %>
+</div>
