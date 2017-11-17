@@ -1,6 +1,6 @@
 class ChecksController < ApplicationController
   def index
-    @card = current_user.decks.current_deck ? current_user.decks.current_deck.cards.time.random.first : current_user.cards.time.random.first
+    @card = current_user.current_deck_id.nil? ? current_user.cards.time.random.first : current_user.current_deck.cards.time.random.first
   end
 
   def check

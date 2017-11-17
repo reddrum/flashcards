@@ -23,7 +23,7 @@ describe "Login and logout", :type => :feature do
   end
 
   context "user not logged in and doesn't see links" do
-    before { visit cards_path }
+    before { visit decks_path }
     it { expect(page).not_to have_content "Edit Profile" }
   end
 end

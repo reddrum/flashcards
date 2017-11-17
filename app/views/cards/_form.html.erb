@@ -1,4 +1,4 @@
-<%= simple_form_for @card, html: { multipart: true } do |f| %>
+<%= simple_form_for @card, url: url, html: { multipart: true } do |f| %>
 	<% if @card.errors.any? %>
 		<div class="panel-body">
 	    <h2><%= pluralize(@card.errors.count, "error") %> </h2>
@@ -14,6 +14,6 @@
 	...or provide a URL: <%= f.input :image_remote_url %>
   <%= f.input :original_text %>
   <%= f.input :translated_text %>
-  <%= f.association :deck, collection: current_user.decks, selected: Deck.first, label: "Deck" %> 
+  <%= f.association :deck, collection: current_user.decks, selected: params[:deck_id], label: "Deck" %> 
   <%= f.button :submit %>
 <% end %>

@@ -3,7 +3,7 @@
 	    <div class="alert alert-<%= key %>"><%= value %></div>
 	<% end %>
 	<% if @card %>
-	  <%= render 'form' %>
+	  <%= render 'form', card: @card  %>
 	<% else %>
 	  <p> No cards </p>
 	<% end %>

@@ -13,6 +13,6 @@
 	<p>
 		<%= @card.review_date.to_datetime.strftime("%d/%m/%Y") %>
 	</p>
-	<%= link_to 'Edit', edit_card_path(@card) %> |
-	<%= link_to 'Delete', card_path(@card), method: :delete, data: { confirm: 'Are you sure?' } %>
+	<%= link_to 'Edit', [:edit, @card.deck, @card] %> |
+	<%= link_to 'Delete', deck_card_path(@card.deck, @card), method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>

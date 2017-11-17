@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109164114) do
+ActiveRecord::Schema.define(version: 20171112212215) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20171109164114) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.boolean "current"
     t.index ["user_id"], name: "index_decks_on_user_id"
   end
 

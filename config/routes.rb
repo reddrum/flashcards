@@ -9,13 +9,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   post 'check' => 'checks#check'
   
-  resources :cards
   resources :users
   resources :decks do
-    member do
-      post "current_on"
-    end
+    resources :cards
   end
+  
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'
   

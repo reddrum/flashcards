@@ -11,5 +11,10 @@
   <% end %>
 
   <%= f.input :title %>
+  
+  <%= f.simple_fields_for :user  do |i| %>
+    <%= i.input :current_deck_id, as: :boolean, checked_value: @deck.id, unchecked_value: 0  %>
+  <% end %> 
+
   <%= f.button :submit %>
 <% end %>

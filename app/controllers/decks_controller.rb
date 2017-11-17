@@ -1,4 +1,5 @@
 class DecksController < ApplicationController
+  before_action :require_login
   before_action :find_deck, except: [:index, :new, :create]
 
   def index
@@ -17,7 +18,7 @@ class DecksController < ApplicationController
     @deck = current_user.decks.new(deck_params)
 
     if @deck.save
-      redirect_to @deck
+      redirect_to decks_path
     else
       render :new
     end
@@ -40,20 +41,17 @@ class DecksController < ApplicationController
     redirect_to decks_path
   end
 
-  def current_on
-    current_user.update_attributes(current_deck_id: params[:id])
-    @deck.set_current
-    redirect_to decks_path
+  def current
+    current_user.current_deck_id
   end
 
   private
 
     def deck_params
-      params.require(:deck).permit(:title, :id)
+      params.require(:deck).permit(:title, user_attributes: [:current_deck_id, :id])
     end
 
     def find_deck
       @deck = current_user.decks.find(params[:id])
     end
-
 end
